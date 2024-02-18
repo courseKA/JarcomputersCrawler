@@ -1,12 +1,9 @@
-import os
 import requests
-from pathlib import Path
 import json
 import sqlite3
 import time
 from bs4 import BeautifulSoup
 import re
-from urllib.parse import urljoin
 from datetime import datetime, timedelta
 ''' За сайта jarcomputers.com е компютърна фирма на Българския пазар, предлагаща техника като лаптопи, настолни компютри, 
 компютърни компоненти, периферия и други.
@@ -31,9 +28,6 @@ if response.status_code == 200:
 soup = BeautifulSoup(response.text, 'html.parser')
 links = soup.find_all( href = re.compile('lenovo'))
 
-url = ""
-
-
 response = requests.get('https://www.jarcomputers.com/Laptopi_cat_2.html?ref=c_1')
 if response.status_code == 200:
     response.content
@@ -42,9 +36,7 @@ else:
     
 soup = BeautifulSoup(response.text, 'html.parser')
 
-
 # Extract information based on the HTML structure of the page
-
 
 #  Print all laptop names
 laptop_names = soup.find_all( href = re.compile('lenovo'))
@@ -57,8 +49,3 @@ for laptop_price in laptop_prices:
     #print(laptop_price.text.strip())
 
     print(f"Laptop: {laptop_name.text}, Price: {laptop_price.text}")
-
-#for link in links:
-    #if link not in links:
-        #links.append(link)
-    #print(link) 
