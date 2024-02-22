@@ -1,5 +1,4 @@
 import requests
-import json
 import sqlite3
 import time
 from bs4 import BeautifulSoup
