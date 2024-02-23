@@ -21,22 +21,16 @@ links=[]
 
 # URL of the website to crawl
 response = requests.get('https://www.jarcomputers.com/Laptopi_cat_2.html?ref=c_1')
-if response.status_code == 200:
-    response.raise_for_status()
 
 soup = BeautifulSoup(response.text, 'html.parser')
-links = soup.find_all( href = re.compile('lenovo'))
 
 response = requests.get('https://www.jarcomputers.com/Laptopi_cat_2.html?ref=c_1')
-if response.status_code == 200:
+if response.status_code == ok:
     response.content
 else:
     print(f"Failed to fetch {url}, status code: {response.status_code}")
-    
-soup = BeautifulSoup(response.text, 'html.parser')
 
 # Extract information based on the HTML structure of the page
-
 #  Print all laptop names
 laptop_names = soup.find_all( href = re.compile('lenovo'))
 for laptop_name in laptop_names:
