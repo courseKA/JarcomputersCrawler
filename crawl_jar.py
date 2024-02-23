@@ -17,14 +17,9 @@ from datetime import datetime, timedelta
 Забележка
 Вашият crawler трябва да се съобразява с правилата в https://www.jarcomputers.com/robots.txt.'''
 
-links=[]
-
 # URL of the website to crawl
 response = requests.get('https://www.jarcomputers.com/Laptopi_cat_2.html?ref=c_1')
-
 soup = BeautifulSoup(response.text, 'html.parser')
-
-response = requests.get('https://www.jarcomputers.com/Laptopi_cat_2.html?ref=c_1')
 if response.status_code == ok:
     response.content
 else:
